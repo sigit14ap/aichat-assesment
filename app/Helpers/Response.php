@@ -50,7 +50,7 @@ class Response
                 'message' => $message
             ],
             'errors' => $errors
-        ]);
+        ], 422);
     }
 
     /**
@@ -58,14 +58,14 @@ class Response
      *
      * @return json
      */
-    public static function badResponse(string $message)
+    public static function badRequest(string $message)
     {
         return response()->json([
             'status' => [
                 'code' => 400,
                 'message' => $message
             ]
-        ]);
+        ], 400);
     }
 
     /**
@@ -80,7 +80,7 @@ class Response
                 'code' => 500,
                 'message' => $message
             ]
-        ]);
+        ], 500);
     }
 
     /**
@@ -96,6 +96,6 @@ class Response
                 'code' => $code,
                 'message' => $message
             ]
-        ]);
+        ], $code);
     }
 }

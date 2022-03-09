@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('purchase_transactions', function (Blueprint $table) {
+        Schema::create('voucher_customers', function (Blueprint $table) {
             $table->id();
 
             $table->bigInteger('customer_id')->unsigned();
@@ -22,10 +22,15 @@ return new class extends Migration
             ->on('customers')
             ->onDelete('cascade');
 
-            $table->decimal('total_spent', 10, 2);
-            $table->decimal('total_saving', 10, 2);
+            $table->bigInteger('voucher_id')->unsigned();
+            $table->foreign('voucher_id')
+            ->references('id')
+            ->on('vouchers')
+            ->onDelete('cascade');
 
-            $table->timestamp('transaction_at');
+            $table->string('status')->default('waiting');
+
+            $table->timestamp('expired_at');
             $table->timestamps();
         });
     }
@@ -37,6 +42,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('purchase_transactions');
+        Schema::dropIfExists('voucher_customers');
     }
 };

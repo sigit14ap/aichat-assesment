@@ -6,17 +6,17 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class PurchaseTransaction extends Model
+class VoucherCustomer extends Model
 {
     use HasFactory;
 
     /**
-     * Get the customer that owns the PurchaseTransaction
+     * Get the voucher that owns the VoucherCustomer
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function customer(): BelongsTo
+    public function voucher(): BelongsTo
     {
-        return $this->belongsTo(\App\Models\Customer::class, 'customer_id', 'id');
+        return $this->belongsTo(\App\Models\Voucher::class, 'voucher_id', 'id');
     }
 }

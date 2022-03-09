@@ -3,6 +3,10 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Services\Customer\Interfaces\CustomerServiceInterface;
+use App\Services\Customer\CustomerService;
+use App\Services\Transaction\Interfaces\TransactionServiceInterface;
+use App\Services\Transaction\TransactionService;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +27,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->app->bind(CustomerServiceInterface::class, CustomerService::class);
+        $this->app->bind(TransactionServiceInterface::class, TransactionService::class);
     }
 }

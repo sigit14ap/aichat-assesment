@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Customer;
+use App\Models\PurchaseTransaction;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,6 +16,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+
+        Customer::factory(50)
+        ->create()
+        ->each(function ($customer) {
+            $customer->transactions()->saveMany(
+                PurchaseTransaction::factory(rand(1, 5))->withCustomerId($customer->id)->create()
+            );
+        });
+
+        $this->call([
+            VoucherSeeder::class,
+        ]);
     }
 }

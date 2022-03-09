@@ -6,17 +6,17 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Customer extends Model
+class Voucher extends Model
 {
     use HasFactory;
 
     /**
-     * Get all of the transactions for the Customer
+     * Get all of the customer for the Voucher
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function transactions(): HasMany
+    public function customer(): HasMany
     {
-        return $this->hasMany(\App\Models\PurchaseTransaction::class, 'customer_id', 'id');
+        return $this->hasMany(\App\Models\VoucherCustomer::class, 'voucher_id', 'id');
     }
 }
