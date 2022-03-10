@@ -30,7 +30,7 @@ return new class extends Migration
 
             $table->string('status')->default('waiting');
 
-            $table->timestamp('expired_at');
+            $table->dateTime('expired_at');
             $table->timestamps();
         });
     }

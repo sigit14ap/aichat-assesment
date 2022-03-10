@@ -7,6 +7,8 @@ use App\Services\Customer\Interfaces\CustomerServiceInterface;
 use App\Services\Customer\CustomerService;
 use App\Services\Transaction\Interfaces\TransactionServiceInterface;
 use App\Services\Transaction\TransactionService;
+use App\Services\Voucher\Interfaces\VoucherServiceInterface;
+use App\Services\Voucher\VoucherService;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -29,5 +31,6 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->bind(CustomerServiceInterface::class, CustomerService::class);
         $this->app->bind(TransactionServiceInterface::class, TransactionService::class);
+        $this->app->bind(VoucherServiceInterface::class, VoucherService::class);
     }
 }

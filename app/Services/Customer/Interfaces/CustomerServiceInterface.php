@@ -9,7 +9,7 @@ interface CustomerServiceInterface
     /**
      * Find customer by email
      * @param string $email
-     * @return App\Models\Customer || null
+     * @return App\Models\Customer || NULL
      */
     public function findByEmail(string $email) : ?Customer;
 }

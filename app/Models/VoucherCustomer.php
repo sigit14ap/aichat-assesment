@@ -10,6 +10,10 @@ class VoucherCustomer extends Model
 {
     use HasFactory;
 
+    protected $guarded = [
+        'id'
+    ];
+    
     /**
      * Get the voucher that owns the VoucherCustomer
      *
