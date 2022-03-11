@@ -19,3 +19,10 @@ php artisan serve
 ```
 AiChat.postman_collection.json
 ```
+
+- You can change time expired of campaign in
+```
+App\Http\Controllers\CampaignController
+
+private $campaign_end_at = '2022-04-01 10:00:00';
+```

@@ -17,7 +17,7 @@ class CampaignController extends Controller
     private $voucher;
     private $voucherService;
     private $customerService;
-    private $campaign_end_at = '2022-03-19 10:00:00';
+    private $campaign_end_at = '2022-04-01 10:00:00';
 
     public function __construct(Request $request, CustomerServiceInterface $customerService, VoucherServiceInterface $voucherService)
     {
