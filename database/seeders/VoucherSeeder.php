@@ -15,7 +15,7 @@ class VoucherSeeder extends Seeder
      */
     public function run()
     {
-        foreach(range(1, 2) as $row){
+        foreach(range(1, 1000) as $row){
             $status = true;
 
             $number = '';
